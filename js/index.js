@@ -58,6 +58,23 @@ showItThen("show it then called", function(){
     console.log("callback called");
 });
 
+var inGlboal = true;
+
+function testMe(){
+    console.log("testMe(): " +inGlboal);
+
+    var someMsg = "some Message";
+    console.log("testMe(): " +someMsg)
+
+    showItThen("with Closure ", function (){
+        showIt("testMe With Closure(): " +someMsg);
+    });
+}
+
+testMe();
+
+/*
 showMsg("Teste");
 showMsg("Teste", " e mais teste");
 showIt("showIt teste");
+*/
