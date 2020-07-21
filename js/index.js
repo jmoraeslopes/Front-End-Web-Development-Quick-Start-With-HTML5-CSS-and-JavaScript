@@ -9,7 +9,56 @@ console.log(msg);
 var resultsDiv = document.getElementById("results");
 resultsDiv.innerHTML = "<p>This is from JavaScript</p>";
 
-console.log("msg is "+ typeof(msg));
+/* var result = {
+    name: "jQuery",
+    language: "JavaScript",
+    score: 4.5,
+    showLog: function(){
+
+    },
+    owner: {
+        login: "jmlopes"
+        id: 123456
+    }
+}; */
+
+/* result.phoneNumber = "123-456-7890";
+console.log(result.phoneNumber); */
+
+var results = [{
+    name: "jQuery",
+    language: "JavaScript",
+    score: 4.5,
+    showLog: function(){
+
+    },
+    owner: {
+        login: "jmlopes",
+        id: 123456
+    }
+},{
+    name: "jQuery UI",
+    language: "JavaScript",
+    score: 3.5,
+    showLog: function(){
+
+    },
+    owner: {
+        login: "jmlopes",
+        id: 123456
+    }
+
+}];
+
+console.log(results.length);
+console.log(results[0].owner);
+
+/* results.push(result);
+results.push({
+    name: "dummy Project"
+}) */
+
+/* console.log("msg is "+ typeof(msg));
 console.log("resultDiv is "+ typeof(resultsDiv));
 
 var none;
@@ -28,10 +77,6 @@ if (!none){
 if (aNumber === "10"){
     console.log("10 is 10")
 }
-
-/*function showMsg(msg) {
-console.log("showMsg: "+msg)
-}*/
 
 function showMsg(msg,more){
     if(more){
@@ -71,10 +116,4 @@ function testMe(){
     });
 }
 
-testMe();
-
-/*
-showMsg("Teste");
-showMsg("Teste", " e mais teste");
-showIt("showIt teste");
-*/
+testMe(); */
