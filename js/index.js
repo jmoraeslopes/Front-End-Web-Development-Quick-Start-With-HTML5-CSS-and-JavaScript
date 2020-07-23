@@ -50,8 +50,14 @@ var results = [{
 
 }];
 
-console.log(results.length);
-console.log(results[0].owner);
+for (var x = 0; x < results.length; x++){
+    var result = results[x];
+    if (result.score > 4) continue;
+    console.log(result.name);
+}
+
+/* console.log(results.length);
+console.log(results[0].owner); */
 
 /* results.push(result);
 results.push({
