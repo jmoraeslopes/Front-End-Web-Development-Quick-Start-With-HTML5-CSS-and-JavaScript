@@ -3,11 +3,14 @@
 */
 "use strict"
 
-var msg = "Hello JavaScript!";
+/* var msg = "Hello JavaScript!";
 console.log(msg);
 
 var resultsDiv = document.getElementById("results");
-resultsDiv.innerHTML = "<p>This is from JavaScript</p>";
+resultsDiv.innerHTML = "<p>This is from JavaScript</p>"; */
+
+var resultList = $("#resultList");
+resultList.text("This is from jQuery");
 
 /* var result = {
     name: "jQuery",
