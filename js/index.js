@@ -11,7 +11,8 @@ var resultsDiv = document.getElementById("results");
 resultsDiv.innerHTML = "<p>This is from JavaScript</p>"; */
 
 var resultList = $("#resultList");
-resultList.text("This is from jQuery");
+/* resultList.text("This is from jQuery");
+resultList.empty(); */
 
 var toggleButton = $("#toggleButton");
 toggleButton.on("click", function(){
