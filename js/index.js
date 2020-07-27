@@ -66,11 +66,30 @@ var results = [{
 
 }];
 
-for (var x = 0; x < results.length; x++){
+resultList.empty
+$.each(results, function(i, item) {
+    var newResult = $("<div class='result'>" +
+    "<div class='title'>" + item.name + "</div>" +
+    "<div> Language: " + item.language + "</div>" +
+    "<div> Owner: " + item.owner.login + "</div>" +
+    "</div>");
+
+    newResult.hover(function () {
+        //make it darker
+        $(this).css("background-color", "lightgray");
+    }, function (){
+        //reverse
+        $(this).css("background-color", "transparent");
+    });
+
+    resultList.append(newResult);
+});
+
+/* for (var x = 0; x < results.length; x++){
     var result = results[x];
     if (result.score > 4) continue;
     console.log(result.name);
-}
+} */
 
 /* console.log(results.length);
 console.log(results[0].owner); */
