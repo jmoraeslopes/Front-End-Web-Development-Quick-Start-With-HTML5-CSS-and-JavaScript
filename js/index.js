@@ -41,7 +41,18 @@ listItems.filter(":first").css("font-size", "18px");
 /* result.phoneNumber = "123-456-7890";
 console.log(result.phoneNumber); */
 
-var results = [{
+//na aula, o método abaixo usa o .success .done .fail - porém estou utilizando uma versão
+//mais nova do jQuery, pesquisando no google encontrei as funções corretas e atualizadas (.then)
+var gitHubSearch = "https://api.github.com/search/repositories?q=jquery+language:javascript&sort=stars";
+$.get(gitHubSearch)
+    .then(function successCallback(r) {
+        displayResults(r.items);
+    },
+    function errorCallBack(r){
+        console.log("Failed to query GitHub");
+    });
+
+/* var results = [{
     name: "jQuery",
     language: "JavaScript",
     score: 4.5,
@@ -64,8 +75,9 @@ var results = [{
         id: 123456
     }
 
-}];
+}]; */
 
+function displayResults(results) {
 resultList.empty
 $.each(results, function(i, item) {
     var newResult = $("<div class='result'>" +
@@ -84,6 +96,7 @@ $.each(results, function(i, item) {
 
     resultList.append(newResult);
 });
+}
 
 /* for (var x = 0; x < results.length; x++){
     var result = results[x];
