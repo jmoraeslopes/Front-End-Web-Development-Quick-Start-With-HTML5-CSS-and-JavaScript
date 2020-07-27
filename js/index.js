@@ -22,7 +22,7 @@ toggleButton.on("click", function(){
 
 var listItems = $("header nav li");
 listItems.css("font-weight", "bold");
-listItems.filter(":first").css("font-size", "18px");
+listItems.filter(":first").css("font-size");
 
 
 /* var result = {
@@ -41,16 +41,41 @@ listItems.filter(":first").css("font-size", "18px");
 /* result.phoneNumber = "123-456-7890";
 console.log(result.phoneNumber); */
 
-//na aula, o método abaixo usa o .success .done .fail - porém estou utilizando uma versão
-//mais nova do jQuery, pesquisando no google encontrei as funções corretas e atualizadas (.then)
-var gitHubSearch = "https://api.github.com/search/repositories?q=jquery+language:javascript&sort=stars";
+$("#gitHubSearchForm").on("submit", function(){
+
+    var searchPhrase = $("#searchPhrase").val();
+    var useStars = $("#useStars").val();
+    var langChoice = $("#langChoice").val();
+
+    if (searchPhrase) {
+
+    resultList.text("Performing search...");
+    var gitHubSearch = "https://api.github.com/search/repositories?q=" + encodeURIComponent(searchPhrase);
+
+    if (langChoice != "All") {
+        gitHubSearch += "+language:" + encodeURIComponent(langChoice);
+    }
+
+    if (useStars) {
+        gitHubSearch += "&sort=stars";
+    }
+
 $.get(gitHubSearch)
     .then(function successCallback(r) {
+        resultList.empty();
         displayResults(r.items);
     },
     function errorCallBack(r){
         console.log("Failed to query GitHub");
     });
+    } 
+    return false;
+});
+
+
+//na aula, o método acima/abaixo usa o .success .done .fail - porém estou utilizando uma versão
+//mais nova do jQuery, pesquisando no google encontrei as funções corretas e atualizadas (.then)
+
 
 /* var results = [{
     name: "jQuery",
