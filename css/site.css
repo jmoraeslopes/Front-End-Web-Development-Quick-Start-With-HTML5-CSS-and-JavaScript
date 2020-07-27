@@ -83,6 +83,7 @@ header nav {
 
 header nav li {
     display: inline;
+    font-size: 12px;
 }
 a {
     color: green;
